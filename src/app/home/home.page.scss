@@ -1,27 +1,54 @@
-#container {
-  text-align: center;
+ion-content {
+  --background: #f8f8f8;
+}
 
+ion-list {
+  margin-bottom: 56px; /* Space for footer */
+}
+
+ion-footer {
+  --background: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-text {
+  padding: 8px;
+  margin: 4px 0;
+  background-color: #e8e8e8;
+  border-radius: 8px;
+  word-break: break-word;
+}
+
+.message-image {
+  max-width: 100%;
+  max-height: 200px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+.typing-indicator {
+  padding: 8px;
+  color: #888;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.native-wrapper.sc-ion-input-md {
+  padding-left: 2% !important;
 }

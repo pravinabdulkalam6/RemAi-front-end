@@ -2,8 +2,11 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'handwriting-to-text',
-  webDir: 'www'
+  appName: 'RemAI',
+  webDir: 'www',
+    server: {
+    androidScheme: 'http'
+  }
 };
 
 export default config;

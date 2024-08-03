@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Chat</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let message of messages">
+      <ion-label>
+        <div *ngIf="message.type === 'text'" class="message-text">{{ message.content }}</div>
+        <img *ngIf="message.type === 'image'" [src]="message.content" class="message-image" />
+        <div *ngIf="message.type === 'recognizedText'" class="message-text">{{ message.content }}</div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="loading" class="loader">
+    <ion-spinner name="circles"></ion-spinner> Processing...
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input [(ngModel)]="newMessage" placeholder="Type a message"></ion-input>
+    <ion-button shape="round" class="btn" (click)="captureImage()">Capture Image</ion-button>
+    <ion-button (click)="sendImageAndMessage()" [disabled]="!capturedImage || !newMessage">Send Image and Message</ion-button>
+    <ion-button (click)="readText()" [disabled]="!recognizedText">Read Text</ion-button>
+  </ion-toolbar>
+</ion-footer>
