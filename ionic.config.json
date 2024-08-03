@@ -1,0 +1,7 @@
+{
+  "name": "handwriting-to-text",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
